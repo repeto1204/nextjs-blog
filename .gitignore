@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+*.pem
 
 # debug
 npm-debug.log*
@@ -30,3 +31,18 @@ yarn-error.log*
 .env.production.local
 
 .idea
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+.idea
+.dcignore
+*.lock
+
+# yarn berry upgrade 대비용
+.yarn
+.pnp.*
+.yarnrc.yml

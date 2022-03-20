@@ -1,0 +1,23 @@
+#!/bin/bash
+. "$(dirname "$0")/_/husky.sh"
+
+COMMIT_MSG=$(cat "$1")
+#ISSUE_NAME=$(git branch --show-current | cut -d '/' -f2)
+TYPES="^(feat|fix|docs|style|refactor|test|chore)"
+
+## 이슈키 포함 여부 확인
+#if [[ "$COMMIT_MSG" == *"$ISSUE_NAME"* ]] ; then
+#  # 커밋 메세지 타입 포함 여부 확인
+#  if ! [[ "$COMMIT_MSG" =~ $TYPES ]] ; then
+#    echo "NO TYPE : 이슈 타입을 적어주세요. 대소문자를 구분합니다."
+#    exit 1
+#  fi
+#else
+#  echo "NO ISSUE KEY : 이슈키를 메세지 뒤에 적어주세요. 대소문자를 구분합니다."
+#  exit 1
+#fi
+
+if ! [[ "$COMMIT_MSG" =~ $TYPES ]] ; then
+  echo "NO TYPE : 이슈 타입을 적어주세요. 대소문자를 구분합니다."
+  exit 1
+fi
